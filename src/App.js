@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Category from "./Components/Category";
+import Foryou from "./Components/Foryou";
+import Toptracks from "./Components/Toptracks"
+import Favourites from "./Components/Favourites";
+import Recentlyplayed from "./Components/Recentlyplayed";
 function App() {
+  const appRouter=createBrowserRouter(
+    [
+    {
+    path:'/',
+    element:<Category/>
+    },
+    {
+      path:'/Foryou',
+      element:<Foryou/>
+    },
+    {
+     path:'/Toptracks',
+     element:<Toptracks/>
+    },
+    {
+    path:'/Fav',
+    element:<Favourites/>
+    },
+    {
+      path:'/Recentlyplayed',
+      element:<Recentlyplayed/>
+    }
+    ]
+  )
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-purple-300" >
+  <RouterProvider router={appRouter}/>
     </div>
+  
+ 
+  
   );
 }
 
